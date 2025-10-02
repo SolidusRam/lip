@@ -14,7 +14,7 @@ let parse (s : string) : boolExpr =
 
 exception NoRuleApplies
 
-let rec trace1 = function
+let trace1 = function
     If(True,e1,_) -> e1
   | If(False,_,e2) -> e2
   | If(_,_,_) -> failwith "TODO"
@@ -29,4 +29,4 @@ let rec trace e = try
 let rec eval = function
     True -> true
   | False -> false
-  | If(_,_,_) -> failwith "TODO"
+  | If(b1,b2,b3) -> if eval b1 then eval b2 else eval b3

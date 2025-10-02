@@ -1,0 +1,11 @@
+(library
+ (name boolexpr))
+
+(menhir
+ (modules parser))
+
+(rule
+ (targets lexer.ml)
+ (deps lexer.mll)
+ (action
+  (run ocamllex %{deps})))
