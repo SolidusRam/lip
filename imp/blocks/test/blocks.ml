@@ -26,8 +26,13 @@ let%test "test_parse4" = test_parse
     "x:=0; if x=0 then y:=1 else y:=0; x:=2"
     (Seq(Seq(Assign("x",Const(0)),If(Eq(Var("x"),Const(0)),Assign("y",Const(1)),Assign("y",Const(0)))),Assign("x",Const(2))))
 
+(*
 let%test "test_parse5" = test_parse
     "x:=3; while x<=0 do x:=x-1; y:=0"
+    (Seq(Seq(Assign("x",Const(3)),While(Leq(Var "x",Const 0),Assign("x",Sub(Var "x",Const 1)))),Assign("y",Const(0))))
+*)
+let%test "test_parse5" = test_parse
+    "x:=3; (while x<=0 do x:=x-1); y:=0"
     (Seq(Seq(Assign("x",Const(3)),While(Leq(Var "x",Const 0),Assign("x",Sub(Var "x",Const 1)))),Assign("y",Const(0))))
 
 let%test "test_parse6" = test_parse
