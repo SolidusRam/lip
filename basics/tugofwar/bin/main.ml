@@ -11,4 +11,3 @@ let () = match read_line () with
     if valid l then print_endline (string_of_winner (win l))
     else print_endline "bad input"
   | None -> print_endline "no winner"
-
