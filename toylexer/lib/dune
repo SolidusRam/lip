@@ -1,0 +1,6 @@
+(library
+ (name toylexer)
+ (modules token lexer main) ; Ensure lexer is listed here
+)
+
+(ocamllex lexer) ; This line is crucial! It compiles lexer.mll to lexer.ml
